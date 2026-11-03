@@ -1,0 +1,16 @@
+const L=require('../src/engine.js'); const IDS=L.IDS;
+const VEC_A_RECORD=[3,3,3,2,3,3,2,2,2,3,2,2,2,2,3,1,2,2,3,1,2,2,2,2,2,2], VEC_A_RECORD_GRADES=["E1","E2","E1","E2","E3","E2","E2","E2","E2","E2","E2","E3","E2","E3","E3","E3","E3","E2","E2","E3","E3","E3","E3","E1","E2","E2"];
+const VEC_A_SITE=[4,4,3,3,5,4,3,3,2,3,3,5,4,4,4,3,3,3,3,3,2,4,3,3,4,4], VEC_A_SITE_GRADES=["E1","E2","E3","E2","W","E3","E2","E2","E2","E2","E2","W","W","W","E3","E3","E3","E2","E2","W","E3","E3","E3","E1","W","W"];
+const fac={T3:[{sub:5,basis:"assessed",applicable:true},{sub:2,basis:"none",applicable:true},{sub:3,basis:"visual",applicable:true},{sub:3,basis:"assessed",applicable:true}],T6:[{sub:4,basis:"assessed",applicable:true},{sub:3,basis:"visual",applicable:true},{sub:3,basis:"visual",applicable:true},{sub:3,basis:"assessed",applicable:true}]};
+const mk=(r,g,f)=>IDS.map((id,k)=>({id,rating:r[k],grade:g[k],facilities:(f||{})[id]||null}));
+const ok=(a,b)=>{ if(Math.abs(a-b)>1e-3) throw new Error(a+" != "+b); };
+let x=L.run(mk(VEC_A_RECORD,VEC_A_RECORD_GRADES),{version:"v3.2",jci:4,institutionDependent:false,toa:-0.26,confidenceLevel:"Low"}); ok(x.TRI,23.868);
+x=L.run(mk(VEC_A_RECORD,VEC_A_RECORD_GRADES),{version:"v3.3",jci:4,institutionDependent:false,toa:-0.16}); ok(x.TRI,37.128); ok(x.TRI_high,43.512); if(x.cls!=="Indicated") throw 1;
+x=L.run(mk(VEC_A_SITE,VEC_A_SITE_GRADES.map(g=>g==="W"?"E3":g)),{version:"v3.3",jci:4,institutionDependent:false,toa:-0.16}); ok(x.TRI,57.288); ok(x.TRI_high,61.152);
+x=L.run(mk(VEC_A_SITE,VEC_A_SITE_GRADES,fac),{version:"v3.4",jci:3,institutionDependent:false,toa:-0.16}); ok(x.BRS,65.6); ok(x.TRI,48.544); ok(x.TRI_low,44.696); ok(x.TRI_high,51.652); if(x.decision!=="Reassess pathway") throw 2;
+const s=L.simulate(mk(VEC_A_SITE,VEC_A_SITE_GRADES,fac),{version:"v3.4",jci:3,toa:-0.16,toaRange:[-0.16,0],jcaOptions:[0.9,1.0]},8000); console.log("MC",s.p10.toFixed(1),s.p50.toFixed(1),s.p90.toFixed(1),s.probs);
+const s2=L.simulate(mk(VEC_A_SITE,VEC_A_SITE_GRADES,fac),{version:"v3.4",jci:3,toa:-0.16,sharedOptimism:true},8000); console.log("MC shared",s2.p10.toFixed(1),s2.p90.toFixed(1));
+console.log("ALL ENGINE TESTS PASS");
+const s3=L.simulate(mk(VEC_A_SITE,VEC_A_SITE_GRADES,fac),{version:"v3.4",jci:3,toa:-0.16,rho:0.6},8000); console.log("MC copula rho 0.6",s3.p10.toFixed(1),s3.p50.toFixed(1),s3.p90.toFixed(1));
+const s4=L.simulate(mk(VEC_A_SITE,VEC_A_SITE_GRADES,fac),{version:"v3.4",jci:3,toa:-0.16,rho:0.6,toaRange:[-0.16,0],jcaOptions:[0.9,1.0]},8000); console.log("MC copula+structural",s4.p10.toFixed(1),s4.p90.toFixed(1),s4.probs);
+const lev=L.leverage(mk(VEC_A_SITE,VEC_A_SITE_GRADES,fac),{version:"v3.4",jci:3,toa:-0.16,thresholds:"B",toaRange:null,jcaOptions:[0.9,1.0]},{criteria:["F1","F2"],release:0.03}); console.log("leverage F1/F2 + security item (set B):",lev);

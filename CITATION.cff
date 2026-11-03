@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Closure Transition Studio - Legacy Asset Transition Assessment Framework tools"
+version: "0.1.0-draftA"
+date-released: "2026-10-31"
+authors:
+  - family-names: Hood
+    given-names: Alex
+license: Apache-2.0
+repository-code: "https://github.com/<owner>/closure-transition-studio"

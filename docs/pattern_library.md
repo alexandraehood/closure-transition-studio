@@ -1,0 +1,42 @@
+# Pattern library - cross-cutting patterns, inefficiencies and opportunities (Personal edition module candidate, Draft A, 31 Oct 2026)
+
+Deterministic rules over typed registers in a populated closure record. Agents populate the registers; the reviewer confirms every finding. Screening-level. Each threshold is a framework rule: changing one is a CAL item.
+
+| Id | Class | Pattern | Detector | Question to ask | Evidence to collect | Verb | Effect |
+|---|---|---|---|---|---|---|---|
+| A1 | Stacking | Discretionary stack on one chain | 3+ discretionary layers or discretionary multiplier >= x1.3 on a design or cost chain | Which of these margins does the instrument actually require, and which are ours? | Instrument clause per layer; design basis memo | Validate | cost |
+| A2 | Stacking | Joint-probability inflation | Independent tail assumptions multiplied; implied return period >= 5x the requirement | What is the joint probability of the design case, and does the requirement ask for it? | Coincident-frequency analysis on the observed joint record | Reframe | cost, risk |
+| A3 | Stacking | Same driver counted twice | Two statistical layers share a driver (one event treated as two) | Are these two margins the same event? | Driver mapping per layer | Simplify | cost |
+| A4 | Stacking | Incompatible extremes combined | Layers declared physically incompatible are combined in one design case | Can these two conditions occur at the same time? | Joint record of the two variables | Reframe | cost |
+| A5 | Stacking | Scenario on extremes | A scenario (no probability) multiplied onto statistical extremes | Is the scenario a design multiplier or a monitored trigger? | Observed trend against scenario; review cycle | Reframe | cost, time |
+| A6 | Stacking | Probability lost at hand-off | A statistical layer handed to the next discipline as a fixed value | Did the receiving model use the probability or the number? | Hand-off register signed by both disciplines | Validate | risk |
+| A7 | Stacking | Margin applied more than once | Safety factor layered on top of upstream margins, or two safety factors on one chain | Where is margin held, and how many times? | Design basis memo listing every margin | Simplify | cost |
+| B1 | Inheritance | Operating-phase regime carried into closure | Monitoring above the permit frequency with >= 3 years without exceedance | Why is this still sampled at the operating frequency? | Exceedance history; permit schedule; step-down precedent | Simplify | cost (regulatory route) |
+| B2 | Inheritance | Stale assumption never re-validated | Assumption sourced from a document older than 5 years with no later document on the parameter | When was this last checked against data? | Newer measurements or a re-validation memo | Validate | risk, cost |
+| B3 | Inheritance | Horizon beyond the instrument | Cost or treatment horizon longer than the instrument or record supports | What does the instrument say about the horizon, and what does the trend say? | Permit; water quality trend; exit criteria | Reframe | cost |
+| B4 | Inheritance | Assumption without provenance | Category Unknown or no source document: nobody can say why it is there | Who introduced this, and on what basis? | Source document or a decision to drop it | Validate | cost, risk |
+| C1 | Duplication | Estimate overlays stacked | Contingency, class default, escalation and growth overlays multiply to >= x1.6 on one line | Which overlays cover the same uncertainty? | Estimate class basis; corporate standard | Simplify | cost |
+| C2 | Duplication | Same quantity, different values | The same named quantity differs by more than 10% between documents | Which value is the design basis, and who owns it? | Reconciled design-basis table | Validate | risk |
+| C3 | Duplication | Duplicate controls | Two requirements or controls address the same feature | Do both controls add protection, or only cost? | Requirement mapping to features | Simplify | cost |
+| D1 | Mis-sizing | Low observed utilisation | Observed demand below 40% of the designed quantity | What would a staged or modular design have cost? | Operating data; utilisation trend | Reframe | cost |
+| D2 | Mis-sizing | Low forecast utilisation | Central-case need below 40% of the designed quantity (1 / total multiplier) | What is the expansion trigger if we build the binding case first? | Central-case forecast; trigger definition | Reframe | cost, time |
+| E1 | Drift | Decision past its review date | Ledger decision with a review date in the past | Is the decision still right on today's evidence? | Review note; evidence since the decision | Validate | risk |
+| E2 | Drift | No reversal trigger on a high-consequence decision | Decision with consequence >= 4 and no reversal trigger | What observation would make us reverse this? | Trigger definition and owner | Validate | risk |
+| E3 | Drift | Uncosted obligation | Binding requirement with no cost line | Who pays for this, and when? | Cost line or a documented reason it costs nothing | Validate | cost, risk |
+| E4 | Drift | Orphan cost line | Cost line linked to no requirement and no assumption | Why are we spending this? | Requirement or assumption link, or drop the line | Simplify | cost |
+| E5 | Drift | Decision-critical gap left open | Decision-critical gap open for more than 120 days | What stops this gap from closing? | Owner, evidence source, date | Validate | time, risk |
+| F1 | Evidence | Low confidence on a high-consequence decision | Decision at Low confidence with consequence >= 4 | What evidence would raise confidence before we commit? | Targeted data collection with value-of-information | Validate | risk |
+| F2 | Evidence | Desktop pessimism counted as fact | Criteria rated 2 or below on undocumented evidence (E4) | Is this a bad condition or a missing document? | The document, or a gap entry | Validate | cost, time |
+| F3 | Evidence | Information held but unused | Document in the register cited by no criterion, assumption or decision | What does this document change, if anything? | Extraction pass over the document | Validate | time |
+| G1 | Systemic | Same pattern across sites | A pattern fires at >= 3 sites: a practice, not a site condition | Which standard, template or habit produces this everywhere? | Portfolio standard or template; CAL item | Reframe | cost, time, risk |
+| G2 | Systemic | Copied design basis | The same assumption (driver and factor) appears at >= 3 sites | Was this derived per site or copied forward? | Per-site derivation or a documented portfolio basis | Validate | cost, risk |
+
+Thresholds: discStack = 1.3; discLayers = 3; overDesign = 5; utilisation = 0.4; staleYears = 5; stepDownYears = 3; overlayStack = 1.6; quantityDiffPct = 10; systemicSites = 3; gapDays = 120; highConsequence = 4
+
+## How a finding becomes an activity
+
+Finding (pattern, where, text) -> question for the practitioner or workshop -> evidence to collect (information plan, ranked by value of information) -> verb (Keep / Validate / Simplify / Reframe) -> activity per pattern class with lead, duration, risk control and indicative effect -> decision-ledger entry (question, options, choice, reversal trigger, review date) -> investment optimiser ranks the activity by effect per unit of evidence cost -> outcome recorded (confirmed / refuted / acted) so the library learns its hit rate per pattern and per practitioner profile.
+
+## Record schema
+
+assumptions[] {chain, discipline, parameter, ptype statistical|scenario|safety factor|policy|none, tailP, driver, category Binding|Interpreted and precedent|Inherited and layered conservatism|Unknown, factor, handedTo, probabilityCarried, incompatibleWith, requirementRef, sourceDoc, sourceDate}; record {requiredRP, driverCost, currency, horizonYears, instrumentHorizonYears, annualPostClosureCost}; monitoring[] {parameter, frequencyPerYear, permitFrequencyPerYear, yearsWithoutExceedance, costPerSample, yearsRemaining}; costLines[] {item, base, contingencyPct, classDefaultContPct, escalationPct, growthPct, indirectPct, requirementId, assumptionId}; requirements[] {id, instrument, clause, text, binding, costed, feature, control, deviationRoute}; documents[] {id, title, date, role, parameter, quantities[]{name, value, unit}}; decisions[] {id, question, choice, confidence, consequence, reviewDate, reversalTrigger, evidence}; gaps[] {id, what, critical, status, opened}; criteria[] {id, rating, grade, citation}. A portfolio is {records:[...]}.

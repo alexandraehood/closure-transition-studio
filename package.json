@@ -1,0 +1,13 @@
+{
+  "name": "closure-transition-studio",
+  "version": "0.1.0",
+  "description": "Browser-only tools for legacy mine site transition assessment (open edition; fictional demonstration content only)",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node tests/engine_reference.test.js && node tests/pattern_engine.test.js && node tests/exercise_studio.js && node tests/exercise_personal.js && node tests/exercise_personal_v5.js && node tests/exercise_navigator.js && python3 tests/release_gate.py",
+    "test:engine": "node tests/engine_reference.test.js && node tests/pattern_engine.test.js",
+    "test:apps": "node tests/exercise_studio.js && node tests/exercise_personal.js && node tests/exercise_personal_v5.js && node tests/exercise_navigator.js",
+    "build": "python3 tools/build_apps.py",
+    "gate": "python3 tests/release_gate.py"
+  }
+}

@@ -1,0 +1,202 @@
+{
+ "kind": "Closure Transition Studio test pack",
+ "created": "2026-10-31",
+ "jurisdiction": {
+  "name": "Ontario, Canada",
+  "country": "Canada",
+  "legislation": [
+   {
+    "instrument": "Mining Act, R.S.O. 1990, c. M.14 - Part VII Rehabilitation of Mining Lands",
+    "type": "Act",
+    "section": "Part VII (closure plans; financial assurance; progressive rehabilitation; certified closure plans)",
+    "obligation": "Filed and certified closure plan with financial assurance before advanced exploration or mine production; rehabilitation to the Code standard; changes by closure plan amendment",
+    "endState": "Relinquishment route (surrender of lands after rehabilitation - verify the current mechanism); security release; completion criteria",
+    "status": "Current (verify consolidation)",
+    "source": "https://www.ontario.ca/laws/statute/90m14",
+    "retrieved": "2026-10-31",
+    "confidence": "High for the instrument; verify sections"
+   },
+   {
+    "instrument": "O. Reg. 240/00 - Mine Development and Closure under Part VII of the Act (incl. the Mine Rehabilitation Code of Ontario, Schedule 1)",
+    "type": "Regulation",
+    "section": "Closure plan content; Mine Rehabilitation Code (physical stability, chemical stability, revegetation, monitoring)",
+    "obligation": "Prescribed closure plan contents and rehabilitation standards; monitoring requirements",
+    "endState": "Completion criteria",
+    "status": "Current (verify)",
+    "source": "https://www.ontario.ca/laws/regulation/000240",
+    "retrieved": "2026-10-31",
+    "confidence": "High for the instrument; verify clauses"
+   },
+   {
+    "instrument": "Ontario Water Resources Act, R.S.O. 1990, c. O.40",
+    "type": "Act",
+    "section": "s. 53 Environmental Compliance Approval (sewage works, incl. mine effluent treatment and discharge)",
+    "obligation": "ECA conditions on effluent quality, monitoring and reporting; amendment route for changes",
+    "endState": "Water; permit surrender / amendment",
+    "status": "Current",
+    "source": "https://www.ontario.ca/laws/statute/90o40",
+    "retrieved": "2026-10-31",
+    "confidence": "High"
+   },
+   {
+    "instrument": "Environmental Protection Act, R.S.O. 1990, c. E.19",
+    "type": "Act",
+    "section": "s. 14 (discharge of a contaminant causing an adverse effect); orders",
+    "obligation": "General prohibition and order-making powers that persist post-closure",
+    "endState": "Post-closure liability",
+    "status": "Current",
+    "source": "https://www.ontario.ca/laws/statute/90e19",
+    "retrieved": "2026-10-31",
+    "confidence": "High"
+   },
+   {
+    "instrument": "Water Management: Policies, Guidelines, Provincial Water Quality Objectives (MOEE, 1994 'Blue Book') - Policy 2; Procedure B-1-5 (receiving-water based effluent requirements)",
+    "type": "Policy",
+    "section": "Policy 2 (two limbs: default non-degradation; modifying application through documented deviation on four grounds - Appendix C)",
+    "obligation": "Receiving-water objectives; site-specific effluent requirements derived through B-1-5; the documented-deviation limb is Ontario's site-specific route",
+    "endState": "Water; stacked-conservatism check (non-degradation default applied where the deviation route exists)",
+    "status": "Current (policy)",
+    "source": "",
+    "retrieved": "",
+    "confidence": "Medium - cite the Blue Book edition and B-1-5 directly"
+   },
+   {
+    "instrument": "Fisheries Act, R.S.C. 1985, c. F-14, s. 36(3) and the Metal and Diamond Mining Effluent Regulations, SOR/2002-222",
+    "type": "Act",
+    "section": "s. 36(3) deposit of deleterious substances; MDMER Schedule 4 (authorised limits; Table 2 for pre-2021 mines), Schedule 5 EEM",
+    "obligation": "Federal effluent limits and environmental effects monitoring; selenium is an EEM fish-tissue trigger (5/10 ug/L), not a Schedule 4 limit",
+    "endState": "Water; post-closure liability",
+    "status": "Current",
+    "source": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-222/",
+    "retrieved": "2026-10-31",
+    "confidence": "High"
+   }
+  ],
+  "decisions": [
+   {
+    "title": "ECCC Federal Water Quality Guideline for copper - biotic ligand model, dissolved copper",
+    "body": "Environment and Climate Change Canada",
+    "year": "",
+    "decision": "Guideline expressed as dissolved Cu via BLM, not total",
+    "relevance": "Receiving-water objectives for copper should be derived on the dissolved basis; a total-copper target is a conservatism layer",
+    "citation": "ECCC FWQG - copper",
+    "url": ""
+   }
+  ],
+  "caselaw": [],
+  "routes": {
+   "Relinquishment": "limited",
+   "Divestment": "available",
+   "Third-party transfer": "limited",
+   "Accelerated closure": "available",
+   "Reduced care and maintenance": "available",
+   "Long-term stewardship": "available"
+  },
+  "notes": "Test pack for an Ontario (Sudbury basin) legacy site. Public-law references only; verify every section against the current e-Laws consolidation before use. No client data included - populate the site record inside your own environment."
+ },
+ "site": {
+  "code": "SUD",
+  "name": "Sudbury basin legacy tailings and water-management complex (TEST skeleton)",
+  "country": "Canada",
+  "jurisdiction": "Ontario, Canada - Ministry of Mines (Part VII closure plan); MECP (OWRA s.53 ECA); ECCC/DFO (Fisheries Act, MDMER)",
+  "pathway": "Reduced care and maintenance",
+  "institutionDependent": true,
+  "basis": "Desktop (test skeleton - populate from the site's own records)",
+  "currency": "CAD 2026",
+  "recurring": 0,
+  "aro": 0,
+  "profile": {
+   "Country": "Canada",
+   "Region": "North America",
+   "Jurisdiction (state / province, principal regulator)": "Ontario - Ministry of Mines; MECP; ECCC",
+   "Asset type": "Tailings facility dominant",
+   "Closure stage": "Operating - late life",
+   "Ownership structure": "100% owned",
+   "Intended future state (as stated by the owner - never assumed)": "[enter the owner's stated end state]",
+   "Current / planned transition pathway": "Reduced care and maintenance",
+   "Site attribute tags (comma separated)": "water, treatment, TSF, sulphide, nearTown, grid, road, habitat, community, indigenous",
+   "Highest consequence class on site (corporate matrix 1-5)": "5",
+   "Duration class (1 defined end date, 2 <10 yrs, 3 10-30 yrs, 4 indefinite)": "4 indefinite (active water treatment)"
+  },
+  "conservatism": {
+   "layers": [
+    {
+     "chain": "Water treatment duration",
+     "layer": "Effluent objectives set by the Policy 2 default non-degradation limb where the documented-deviation (site-specific) limb is available",
+     "driver": "Treatment OPEX",
+     "driverCost": 0,
+     "category": "Interpreted and precedent",
+     "factor": 1.0,
+     "basis": "MOEE 1994 Policy 2, Appendix C; B-1-5",
+     "verb": "Validate",
+     "reversible": "Yes"
+    },
+    {
+     "chain": "Water treatment duration",
+     "layer": "Copper objective applied as total copper where the federal guideline is dissolved (BLM)",
+     "driver": "Treatment OPEX",
+     "driverCost": 0,
+     "category": "Interpreted and precedent",
+     "factor": 1.0,
+     "basis": "ECCC FWQG Cu (BLM, dissolved)",
+     "verb": "Validate",
+     "reversible": "Yes"
+    },
+    {
+     "chain": "Water treatment duration",
+     "layer": "Selenium treated as a Schedule 4 limit where MDMER makes it an EEM trigger",
+     "driver": "Treatment OPEX",
+     "driverCost": 0,
+     "category": "Interpreted and precedent",
+     "factor": 1.0,
+     "basis": "MDMER Schedule 4 vs Schedule 5",
+     "verb": "Validate",
+     "reversible": "Yes"
+    },
+    {
+     "chain": "Monitoring programme",
+     "layer": "Operating-phase monitoring regime carried unchanged into closure (frequency, parameters, QA/QC duplication)",
+     "driver": "Monitoring",
+     "driverCost": 0,
+     "category": "Inherited and layered conservatism",
+     "factor": 1.0,
+     "basis": "ECA monitoring schedule vs post-closure plan",
+     "verb": "Simplify",
+     "reversible": "Yes"
+    }
+   ],
+   "accepted": []
+  },
+  "gaps": [
+   {
+    "id": "GAP-SUD-01",
+    "topic": "Receiving-water objectives derived under Policy 2 limb 2 (documented deviation) - has the derivation been done and accepted?",
+    "affects": "Water treatment duration and effluent targets (T1, R2, F3)",
+    "consequence": 5,
+    "critical": true,
+    "criteria": [
+     "T1",
+     "R2",
+     "F3"
+    ],
+    "cost": null,
+    "status": "Open"
+   },
+   {
+    "id": "GAP-SUD-02",
+    "topic": "Post-closure monitoring plan agreed with MECP (reduced frequency and parameter list)",
+    "affects": "Monitoring cost (F3, T6)",
+    "consequence": 4,
+    "critical": true,
+    "criteria": [
+     "T6",
+     "F3"
+    ],
+    "cost": null,
+    "status": "Open"
+   }
+  ],
+  "note": "Everything else at the honest default (criteria 3/E4 = gaps). Import on Sites, export & import; then run Documents & extraction on the site's own documents inside your own environment."
+ },
+ "howTo": "Personal/Reference model -> Jurisdiction intelligence -> Import JSON (paste the 'jurisdiction' object); Sites, export & import -> Import JSON (a site record needs the full schema: create the site with + New site using these profile values, then paste the conservatism layers and gaps, or import the 'site' object after exporting a blank site and merging)."
+}
